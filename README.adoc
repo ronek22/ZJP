@@ -8,6 +8,6 @@
 
 |Pierwsza kolumna, drugi wiersz
 |Druga kolumna, drugi wiersz
+|===
 
-
-== Spowiedz
+== Spowiedź
