@@ -1,0 +1,13 @@
+= Zaawansowane Języki Programowania
+== Python
+=== Test tabelki
+[cols="2*^]
+|===
+|Pierwsza kolumna, pierwszy wiersz
+|Druga kolumna, pierwszy wiersz
+
+|Pierwsza kolumna, drugi wiersz
+|Druga kolumna, drugi wiersz
+
+
+== Spowiedz
