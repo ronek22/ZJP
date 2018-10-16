@@ -1,13 +1,22 @@
 = Zaawansowane Języki Programowania
-== Python
-=== Test tabelki
-[cols="2*^]
-|===
-|Pierwsza kolumna, pierwszy wiersz
-|Druga kolumna, pierwszy wiersz
 
-|Pierwsza kolumna, drugi wiersz
-|Druga kolumna, drugi wiersz
+[source, adoc]
+|===
+
+|Student | Język programowania | Narzędzia do analizy kodu
+
+|Jakub Ronkiewicz | Python |
+https://github.com/PyCQA/bandit[bandit]
+https://github.com/davidhalter/jedi[Jedi]
+https://github.com/PyCQA/mccabe[mccabe]
+https://github.com/pyflakes/pyflakes/[pyflakes]
+https://github.com/regebro/pyroma[pyroma]
+https://github.com/rubik/radon[radon]
+https://github.com/jendrikseipp/vulture[vulture]
+https://github.com/rubik/xenon[xenon]
+https://github.com/PyCQA/flake8[flake8]
+
+
 |===
 
 == Spowiedź
