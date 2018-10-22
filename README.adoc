@@ -22,7 +22,7 @@
 | Metrics | Before refactorization | After refactorization
 
 | Ciclomatic Complexity | 
-[source, radon]
+[source, python]
 ----
 calc.py
     F 40:0 menu - B
@@ -32,18 +32,18 @@ vdot.py
 ----
 Average complexity: *A (3.33)*
 |
-[source,radon]
+[source,python]
 ----
 24 blocks (classes, functions, methods) analyzed.
 ---- 
 Average complexity: *A (1.25)*
 
-| Maintainability Index | [source,radon]
+| Maintainability Index | [source,python]
 ----
 calc.py - A (47.36)
 vdot.py - A (51.01)
 ---- 
-Average maintainability: *49.19*| [source, radon]
+Average maintainability: *49.19*| [source, python]
 ----
 runningCalculator.py - A (84.58)
 calculator.py - A (57.13)
@@ -55,15 +55,15 @@ utils.py - A (51.99)
 Average maintainability: *69.47*
 
 | Unused, dead code by Vulture 
-| [source, vulture]
+| [source, python]
 vdot.py:65: unused variable 'timeTab' (60% confidence)
-| [source, vulture] 
+| [source, python] 
 No errors
 
 | Pylint 
-| [source, pylint]
+| [source, python]
 Your code has been rated at -1.58/10
-| [source, pylint]
+| [source, python]
 Your code has been rated at 9.17/10
 
 
