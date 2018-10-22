@@ -17,10 +17,11 @@ def is_pangram(sentence):
     else:
         raise Exception('sentence format error')
     pass
+```
 
-
-
+```sh
 radon cc .\example.py -s
 .\example.py
     F 1:0 is_pangram - B (7)
 ```
+
