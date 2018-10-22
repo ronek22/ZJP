@@ -1,22 +1,70 @@
 = Zaawansowane Języki Programowania
 
+== Python
+
 [source, adoc]
 |===
 
-|Student | Język programowania | Narzędzia do analizy kodu
+|Narzędzie | Opis 
 
-|Jakub Ronkiewicz | Python |
-https://github.com/PyCQA/bandit[bandit]
-https://github.com/davidhalter/jedi[Jedi]
-https://github.com/PyCQA/mccabe[mccabe]
-https://github.com/pyflakes/pyflakes/[pyflakes]
-https://github.com/regebro/pyroma[pyroma]
-https://github.com/rubik/radon[radon]
-https://github.com/jendrikseipp/vulture[vulture]
-https://github.com/rubik/xenon[xenon]
-https://github.com/PyCQA/flake8[flake8]
-
+| https://github.com/PyCQA/pylint[pylint] | looks for programming errors, helps enforcing a coding standard and sniffs for some code smells. It additionally includes pyreverse (an UML diagram generator) and symilar (a similarities checker).
+| https://github.com/rubik/radon[radon] |  tool that computes various metrics from the source code like McCabe's complexity, raw metrics (SLOC, blank lines etc.), halstead metrics, maintainability index 
+| https://github.com/jendrikseipp/vulture[vulture] | finds unused code in Python programs. This is useful for cleaning up and finding errors in large code bases.    
 
 |===
 
 == Spowiedź
+=== https://github.com/ronek22/runningCalculator[Kalkulator biegowy]
+
+.Wyniki z narzędzia Radon
+[cols="e,a,a"]
+|===
+| Metrics | Before refactorization | After refactorization
+
+| Ciclomatic Complexity | 
+[source, radon]
+----
+calc.py
+    F 40:0 menu - B
+vdot.py
+    F 7:0 compareTimMin - C
+9 blocks (classes, functions, methods) analyzed.
+----
+Average complexity: *A (3.33)*
+|
+[source,radon]
+----
+24 blocks (classes, functions, methods) analyzed.
+---- 
+Average complexity: *A (1.25)*
+
+| Maintainability Index | [source,radon]
+----
+calc.py - A (47.36)
+vdot.py - A (51.01)
+---- 
+Average maintainability: *49.19*| [source, radon]
+----
+runningCalculator.py - A (84.58)
+calculator.py - A (57.13)
+constants.py - A (79.88)
+control.py - A (64.79)
+runningIndex.py - A (78.45)
+utils.py - A (51.99)
+---- 
+Average maintainability: *69.47*
+
+| Unused, dead code by Vulture 
+| [source, vulture]
+vdot.py:65: unused variable 'timeTab' (60% confidence)
+| [source, vulture] 
+No errors
+
+| Pylint 
+| [source, pylint]
+Your code has been rated at -1.58/10
+| [source, pylint]
+Your code has been rated at 9.17/10
+
+
+|===
