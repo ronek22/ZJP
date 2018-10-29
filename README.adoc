@@ -162,13 +162,3 @@ Your code has been rated at 9.17/10
 
 
 |===
-
-
-[subs=+quotes]
-....
-# [red]#and# dsa
-osd_mount_options_xfs = inode64,noatime,logbsize=256k
-....
-```
-[red]#obvious
-```
