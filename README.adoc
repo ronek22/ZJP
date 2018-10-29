@@ -19,7 +19,7 @@ def compareTimMin(time, timeList, distance):
     test = len(time.split(':'))
 
     if test == 2 and distance <= 7: # +2 
-        list2 = [float('.'.join(i.split(':'))) for i in timeList] # +2
+        list2 = [float('.'.join(i.split(':'))) for i in timeList] # +1
         time2 = float('.'.join(time.split(':')))
         out = str(min(list2, key=lambda x: abs(x - time2)))
         out = ':'.join(out.split('.'))
@@ -93,7 +93,7 @@ time.py
 |Comprehension
 |+ 1
 |A list/set/dict comprehension of generator expression is equivalent to a for loop.
-|Boolean Operator
+|Boolean
 |+ 1
 |Every boolean operator (and, or) adds a decision point.
 |===
