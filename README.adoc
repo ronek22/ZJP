@@ -111,7 +111,7 @@ time.py
 === https://github.com/ronek22/runningCalculator[Kalkulator biegowy]
 
 .Wyniki refaktoryzacji
-[cols="e,a,a"]
+[cols="1e,5a,5a"]
 |===
 | Metrics | Before refactorization | After refactorization
 
