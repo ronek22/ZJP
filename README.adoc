@@ -13,21 +13,109 @@
 
 |===
 
+== 1. Discovering a pain in the code
+```python
+def compareTimMin(time, timeList, distance):
+    test = len(time.split(':'))
+
+    if test == 2 and distance <= 7: # +2 
+        list2 = [float('.'.join(i.split(':'))) for i in timeList] # +2
+        time2 = float('.'.join(time.split(':')))
+        out = str(min(list2, key=lambda x: abs(x - time2)))
+        out = ':'.join(out.split('.'))
+        if len(out) == 4: # + 1
+            out += '0'
+        ind = vdot.iloc[:, distance - 1][vdot.iloc[:,distance - 1] == out].index.tolist()[0]
+        return out, ind
+    elif test == 2 and distance > 7: # +2 
+        print("Error: time must be in format(hh:mm:ss)")
+        return "", ""
+    elif test == 3 and distance > 7: # +2
+        list2 = [int(''.join(i.split(':'))) for i in timeList] # +1 
+        time2 = int(''.join(time.split(':')))
+        out = str(min(list2, key=lambda x: abs(x - time2)))
+        out = out[:1] + ':' + out[1:3] + ':' + out[3:]
+        ind = vdot.iloc[:, distance - 1][vdot.iloc[:,distance - 1] == out].index.tolist()[0]
+        return out, ind
+    elif test == 3 and distance <= 7: # +2
+        print("Error: time must be in format(mm:ss)")
+        return "", ""
+```
+
+```bash
+radon cc time.py -s
+time.py
+    F 1:0 compareTimMin - C (12)
+```
+
+[cols="1,^1,4"] 
+|===
+|Construct
+|Effect on CC
+|Reasoning 
+
+|`if`
+|+ 1
+|An `if` statement is a single decision.
+
+|`elif`
+|+ 1
+|The `elif` statement adds another decision.
+
+|`else`
+|+ 0
+|The `else` statement does not cause a new decision. The decision is at the `if`.
+
+|`for`
+|+ 1
+|There is a decision at the start of the loop.
+
+|`while`
+|+ 1
+|There is a decision at the `while` statement.
+
+|`except`	
+|+ 1
+|Each except branch adds a new conditional path of execution.
+
+|`finally`
+|+ 0
+|The finally block is unconditionally executed.
+
+|`with`
+|+ 1
+|The `with` statement roughly corresponds to a try/except block (see PEP 343 for details).
+
+|`assert`	
+|+ 1
+|The `assert` statement internally roughly equals a conditional statement.
+
+|Comprehension
+|+ 1
+|A list/set/dict comprehension of generator expression is equivalent to a for loop.
+|Boolean Operator
+|+ 1
+|Every boolean operator (and, or) adds a decision point.
+|===
+
+
+
+
 == Spowiedź
 === https://github.com/ronek22/runningCalculator[Kalkulator biegowy]
 
-.Wyniki z narzędzia Radon
+.Wyniki refaktoryzacji
 [cols="e,a,a"]
 |===
 | Metrics | Before refactorization | After refactorization
 
-| Ciclomatic Complexity | 
+| Cyclomatic Complexity *[lower is better]* | 
 [source, python]
 ----
 calc.py
-    F 40:0 menu - B
+    F 40:0 menu - B (9)
 vdot.py
-    F 7:0 compareTimMin - C
+    F 7:0 compareTimMin - C (12)
 9 blocks (classes, functions, methods) analyzed.
 ----
 Average complexity: *A (3.33)*
@@ -38,7 +126,7 @@ Average complexity: *A (3.33)*
 ---- 
 Average complexity: *A (1.25)*
 
-| Maintainability Index | [source,python]
+| Maintainability Index *[higher is better]* | [source,python]
 ----
 calc.py - A (47.36)
 vdot.py - A (51.01)
@@ -60,7 +148,7 @@ vdot.py:65: unused variable 'timeTab' (60% confidence)
 | [source, python] 
 No errors
 
-| Pylint 
+| Pylint *[higher is better, https://docs.pylint.org/en/1.6.0/faq.html#pylint-gave-my-code-a-negative-rating-out-of-ten-that-can-t-be-right[can be negative]]*
 | [source, python]
 Your code has been rated at -1.58/10
 | [source, python]
