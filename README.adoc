@@ -38,7 +38,7 @@ def compareTimMin(time, timeList, distance): [red]#*31*# =
         print("Error: time must be in format(hh:mm:ss)")
         return "", ""
     [teal]#*elif*# (test == 3 [lime]#*or*# test == 1) [lime]#*and*# (distance > 7 [lime]#*and*# distance <= 42): # [teal]#*1*# + [lime]#*3*# +
-        list2 = [red]#*{ob}*# int(''.join(i.split(':'))) [aqua]#*for*# i in timeList [red]#*{cb}*# # +1 
+        list2 = [red]#*{ob}*# int(''.join(i.split(':'))) [aqua]#*for*# i in timeList [red]#*{cb}*# # +[red]#*1*# 
         out = out[:1] + ':' + out[1:3] + ':' + out[3:]
         ind = vdot.iloc[:, distance - 1][vdot.iloc[:,distance - 1] == out].index.tolist()[0]
         return out, ind
@@ -47,11 +47,13 @@ def compareTimMin(time, timeList, distance): [red]#*31*# =
         return "", ""
 ....
 
-```bash
+[subs="quotes,attributes"]
+....
 radon cc time.py -s
 time.py
-    F 1:0 compareTimMin - C (12)
-```
+    F 1:0 compareTimMin - [red]#*E (31)*#
+....
+
 **Wynik liczony jest od 1, dlatego uzyskaliśmy 12 punktów mimo, że suma daje 11**
 
 [cols="1a,^1,4"] 
