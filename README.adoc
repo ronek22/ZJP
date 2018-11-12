@@ -19,30 +19,30 @@
 [subs="quotes,attributes"]
 .https://gist.asciidoctor.org/?github-ronek22%2FZJP%2F%2FREADME.adoc[Colored version of doc]
 ....
-def compareTimMin(time, timeList, distance): # [red]#*12*# = 
+def compareTimMin(time, timeList, distance): [red]#*31*# = 
     test = len(time.split(':'))
+    flattened = [red]#*{ob}*# n [aqua]#*for*# row in matrix [aqua]#*for*# n in row [red]#*{cb}*# # [aqua]#*2*# +
+    doubled = [red]#*{ob}*# n * 2 [aqua]#*for*# n in numbers [fuchsia]#*if*# n % 2 == 1 [red]#*{cb}*# # [aqua]#*2*# +
+    time_in_sec_from_min = [red]#*{ob}*# x*60 [aqua]#*for*# x in time [red]#*{cb}*# # [red]#*1*# +
+    fahrenheit = [red]#*{ob}*# ((float(9)/5)* x + 32) [aqua]#*for*# x in Celsius  [fuchsia]#*if*# x > 0 [red]#*{cb}*# # + [aqua]#*1*# + [fuchsia]#*1*# +
+    coloured_things = [red]#*{ob}*# (x,y) [aqua]#*for*# x in colours [aqua]#*for*# y in things [red]#*{cb}*# # [aqua]#*2*# +
 
-    [fuchsia]#*if*# test == 2 [lime]#*and*# distance <= 7: # [fuchsia]#*1*# + [lime]#*1*# +
-        list2 = {ob}float('.'.join(i.split(':')))
-        [aqua]#*for*# i in timeList{cb} # [aqua]#*+1*# +
-        time2 = float('.'.join(time.split(':')))
-        out = str(min(list2, key=lambda x: abs(x - time2)))
-        out = ':'.join(out.split('.'))
-        [fuchsia]#*if*# len(out) == 4: # + [fuchsia]#*1*# +
+    [fuchsia]#*if*# (test == 2 [lime]#*or*# test == 6) [lime]#*and*# (distance <= 7 [lime]#*and*# distance > 1): # [fuchsia]#*1*# + [lime]#*3*# + 
+        list2 = [red]#*{ob}*# float('.'.join(i.split(':'))) [aqua]#*for*# i in timeList [red]#*{cb}*# # [red]#*1*# +
+        out = ':'.join(list2.split('.'))
+        [fuchsia]#*if*# (len(out) > 0 [lime]#*and*# len(out) <= 4) [lime]#*or*# len == -2: # [fuchsia]#*1*# + [lime]#*2*# +
             out += '0'
         ind = vdot.iloc[:, distance - 1][vdot.iloc[:,distance - 1] == out].index.tolist()[0]
         return out, ind
-    [teal]#*elif*# test == 2 [lime]#*and*# distance > 7: # + [teal]#*1*# + [lime]#*1*# +
+    [teal]#*elif*# (test == 2 [lime]#*or*# test == 4) [lime]#*and*# (distance > 7 [lime]#*and*# distance <= 42) : # [teal]#*1*# + [lime]#*3*# +
         print("Error: time must be in format(hh:mm:ss)")
         return "", ""
-    [teal]#*elif*# test == 3 [lime]#*and*# distance > 7: # + [teal]#*1*# + [lime]#*1*# +
-        list2 = {ob}int(''.join(i.split(':'))) [aqua]#*for*# i in timeList{cb} # [aqua]#*+1*# + 
-        time2 = int(''.join(time.split(':')))
-        out = str(min(list2, key=lambda x: abs(x - time2)))
+    [teal]#*elif*# (test == 3 [lime]#*or*# test == 1) [lime]#*and*# (distance > 7 [lime]#*and*# distance <= 42): # [teal]#*1*# + [lime]#*3*# +
+        list2 = [red]#*{ob}*# int(''.join(i.split(':'))) [aqua]#*for*# i in timeList [red]#*{cb}*# # +1 
         out = out[:1] + ':' + out[1:3] + ':' + out[3:]
         ind = vdot.iloc[:, distance - 1][vdot.iloc[:,distance - 1] == out].index.tolist()[0]
         return out, ind
-    [teal]#*elif*# test == 3 [lime]#*and*# distance <= 7: # + [teal]#*1*# + [lime]#*1*#
+    [teal]#*elif*# (test == 3 [lime]#*or*# test == 4) [lime]#*and*# (distance <= 7 [lime]#*and*# distance > 1): # [teal]#*1*# + [lime]#*3*# +
         print("Error: time must be in format(mm:ss)")
         return "", ""
 ....
@@ -96,7 +96,7 @@ time.py
 |+ 1
 |The `assert` statement internally roughly equals a conditional statement.
 
-|Comprehension
+|`[red]#*Comprehension*#`
 |+ 1
 |A list/set/dict comprehension of generator expression is equivalent to a for loop.
 |`[lime]#*boolean*#`
