@@ -38,7 +38,7 @@ def compareTimMin(time, timeList, distance): [red]#*31*# =
         print("Error: time must be in format(hh:mm:ss)")
         return "", ""
     [teal]#*elif*# (test == 3 [lime]#*or*# test == 1) [lime]#*and*# (distance > 7 [lime]#*and*# distance <= 42): # [teal]#*1*# + [lime]#*3*# +
-        list2 = [red]#*{ob}*# int(''.join(i.split(':'))) [aqua]#*for*# i in timeList [red]#*{cb}*# # +[red]#*1*# 
+        list2 = [red]#*{ob}*# int(''.join(i.split(':'))) [aqua]#*for*# i in timeList [red]#*{cb}*# # [red]#*1*# + 
         out = out[:1] + ':' + out[1:3] + ':' + out[3:]
         ind = vdot.iloc[:, distance - 1][vdot.iloc[:,distance - 1] == out].index.tolist()[0]
         return out, ind
@@ -101,12 +101,42 @@ time.py
 |`[red]#*Comprehension*#`
 |+ 1
 |A list/set/dict comprehension of generator expression is equivalent to a for loop.
+
 |`[lime]#*boolean*#`
 |+ 1
 |Every boolean operator (and, or) adds a decision point.
 |===
 
+[cols="1a,^1,4"] 
+|===
+|CC score
+|Rank
+|Risk 
 
+|1 - 5
+|A
+|low - simple block
+
+|6 - 10
+|B
+|low - well structured and stable block
+
+|11 - 20
+|C 
+|moderate - slighltly complex block
+
+|21 - 30
+|D
+|more than moderate - more complex block
+
+|31 - 40
+|E
+|high - complex block, alarming
+
+|41+
+|F
+|very high - error-prone, unstable block
+|===
 
 
 == Spowiedź
