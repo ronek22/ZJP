@@ -24,6 +24,7 @@ class GildedRose(object):
             if item.sell_in <= 5:
                 quality += 1
             if item.sell_in < 0:
+                quality = 0
                 item.quality = 0
 
         item.quality += quality
@@ -33,13 +34,14 @@ class GildedRose(object):
     def change_quality(self, item):
         if item.name in self.increasing_items:
             self.increase_quality(item)
-        elif item.name not in self.legendary_items:
+        else:
             self.decrease_quality(item)
 
     def update_quality(self):
         for item in self.items:
-            item.sell_in -= 1
-            self.change_quality(item)
+            if item.name not in self.legendary_items:
+                item.sell_in -= 1
+                self.change_quality(item)
 
 
 class Item:
